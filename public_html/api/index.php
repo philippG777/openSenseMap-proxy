@@ -72,4 +72,9 @@ if (!file_exists('cache/' . $requested_name . '.json')) { // cache-file does not
 }
 
 header('Content-type: application/json');   // set header
+
+if ($config['cors']) {
+  header("Access-Control-Allow-Origin: *");
+}
+
 echo json_encode($response_json);           // send
