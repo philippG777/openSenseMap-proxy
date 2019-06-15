@@ -1,9 +1,9 @@
 <?php
 $config = array(
   'interval' => 5,            // 5 minutes
-  'include_name' => false,
+  'include_name' => false,    // not showing the name
   'senseboxes' => array(
-    'weatherstation' => '59be7e67d67eb50011d72f40',
-    'dustsensor' => '5ae36208223bd8001971f0e9'
+    'weatherstation' => '56957f3ab3de1fe0052532da',
+    'dustsensor' => '5ad4cf6d223bd8001939172d'
   )
 );
