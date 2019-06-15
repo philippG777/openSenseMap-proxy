@@ -2,14 +2,14 @@
 require 'config.php';
 
 function load_data_from_api($sensebox_id) {
-  // https://api.opensensemap.org/boxes/59be7e67d67eb50011d72f40
   $data = file_get_contents('https://api.opensensemap.org/boxes/' . $sensebox_id);
   $json = json_decode($data, true);
-  // var_dump($json);
   return $json;
 }
 
 function create_slimmer_json($data) {
+  global $config;
+
   $slim_data = array(
     'time' => time(),
     'sensors' => array()
@@ -27,7 +27,7 @@ function create_slimmer_json($data) {
       'value' => $sensor['lastMeasurement']['value'],
       'time' => $sensor['lastMeasurement']['createdAt']
     );
-    $slim_data[] = $slim_sensor;
+    $slim_data['sensors'][] = $slim_sensor;
   }
   return $slim_data;
 }
